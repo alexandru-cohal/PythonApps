@@ -22,30 +22,38 @@ while True:
             print(f"{indexToDo + 1} - {itemToDo}")
 
     elif userAction.startswith("edit"):
-        indexToDo = int(userAction[5:]) - 1
-        newToDo = input("Enter new ToDo: ") + '\n'
+        try:
+            indexToDo = int(userAction[5:]) - 1
+            newToDo = input("Enter new ToDo: ") + '\n'
 
-        with open("todos.txt", "r") as inputFile:
-            toDos = inputFile.readlines()
+            with open("todos.txt", "r") as inputFile:
+                toDos = inputFile.readlines()
 
-        toDos[indexToDo] = newToDo
+            toDos[indexToDo] = newToDo
 
-        with open("todos.txt", "w") as outputFile:
-            outputFile.writelines(toDos)
+            with open("todos.txt", "w") as outputFile:
+                outputFile.writelines(toDos)
+        except ValueError:
+            print("Command not valid")
+            continue
 
     elif userAction.startswith("complete"):
-        indexToDo = int(userAction[9:]) - 1
+        try:
+            indexToDo = int(userAction[9:]) - 1
 
-        with open("todos.txt", "r") as inputFile:
-            toDos = inputFile.readlines()
+            with open("todos.txt", "r") as inputFile:
+                toDos = inputFile.readlines()
 
-        toDoToRemove = toDos[indexToDo]
-        toDos.pop(indexToDo)
+            toDoToRemove = toDos[indexToDo]
+            toDos.pop(indexToDo)
 
-        with open("todos.txt", "w") as outputFile:
-            outputFile.writelines(toDos)
+            with open("todos.txt", "w") as outputFile:
+                outputFile.writelines(toDos)
 
-        print(f"ToDo {toDoToRemove} was removed")
+            print(f"ToDo {toDoToRemove} was removed")
+        except IndexError:
+            print("No item with the introduced index")
+            continue
 
     elif userAction.startswith("exit"):
         break
