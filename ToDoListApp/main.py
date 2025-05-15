@@ -2,18 +2,18 @@ while True:
     userAction = input("Type add, show, edit, complete and exit: ")
     userAction = userAction.strip()
 
-    if 'add' in userAction:
+    if userAction.startswith("add"):
         toDo = userAction[4:]
 
         with open("todos.txt", "r") as inputFile:
             toDos = inputFile.readlines()
 
-        toDos.append(toDo)
+        toDos.append(toDo + '\n')
 
         with open("todos.txt", "w") as outputFile:
             outputFile.writelines(toDos)
 
-    elif 'show' in userAction:
+    elif userAction.startswith("show"):
         with open("todos.txt", "r") as inputFile:
             toDos = inputFile.readlines()
 
@@ -21,7 +21,7 @@ while True:
             itemToDo = itemToDo.strip('\n')
             print(f"{indexToDo + 1} - {itemToDo}")
 
-    elif 'edit' in userAction:
+    elif userAction.startswith("edit"):
         indexToDo = int(userAction[5:]) - 1
         newToDo = input("Enter new ToDo: ") + '\n'
 
@@ -33,7 +33,7 @@ while True:
         with open("todos.txt", "w") as outputFile:
             outputFile.writelines(toDos)
 
-    elif 'complete' in userAction:
+    elif userAction.startswith("complete"):
         indexToDo = int(userAction[9:]) - 1
 
         with open("todos.txt", "r") as inputFile:
@@ -47,7 +47,7 @@ while True:
 
         print(f"ToDo {toDoToRemove} was removed")
 
-    elif 'exit' in userAction:
+    elif userAction.startswith("exit"):
         break
 
     else:
