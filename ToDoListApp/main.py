@@ -1,4 +1,7 @@
 from helper_functions import getToDos, writeToDos
+import time
+
+print("It is", time.strftime("%d %b %Y, %H:%M:%S"))
 
 while True:
     userAction = input("Type add, show, edit, complete and exit: ")
