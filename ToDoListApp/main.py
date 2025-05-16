@@ -1,22 +1,26 @@
+def getToDos(filepath):
+    with open(filepath, "r") as inputFileLocal:
+        toDosLocal = inputFileLocal.readlines()
+    return toDosLocal
+
+
+def writeToDos(filepath, todosArg):
+    with open(filepath, "w") as outputFile:
+        outputFile.writelines(todosArg)
+
+
 while True:
     userAction = input("Type add, show, edit, complete and exit: ")
     userAction = userAction.strip()
 
     if userAction.startswith("add"):
         toDo = userAction[4:]
-
-        with open("todos.txt", "r") as inputFile:
-            toDos = inputFile.readlines()
-
+        toDos = getToDos("todos.txt")
         toDos.append(toDo + '\n')
-
-        with open("todos.txt", "w") as outputFile:
-            outputFile.writelines(toDos)
+        writeToDos("todos.txt", toDos)
 
     elif userAction.startswith("show"):
-        with open("todos.txt", "r") as inputFile:
-            toDos = inputFile.readlines()
-
+        toDos = getToDos("todos.txt")
         for indexToDo, itemToDo in enumerate(toDos):
             itemToDo = itemToDo.strip('\n')
             print(f"{indexToDo + 1} - {itemToDo}")
@@ -25,14 +29,9 @@ while True:
         try:
             indexToDo = int(userAction[5:]) - 1
             newToDo = input("Enter new ToDo: ") + '\n'
-
-            with open("todos.txt", "r") as inputFile:
-                toDos = inputFile.readlines()
-
+            toDos = getToDos("todos.txt")
             toDos[indexToDo] = newToDo
-
-            with open("todos.txt", "w") as outputFile:
-                outputFile.writelines(toDos)
+            writeToDos("todos.txt", toDos)
         except ValueError:
             print("Command not valid")
             continue
@@ -40,16 +39,10 @@ while True:
     elif userAction.startswith("complete"):
         try:
             indexToDo = int(userAction[9:]) - 1
-
-            with open("todos.txt", "r") as inputFile:
-                toDos = inputFile.readlines()
-
+            toDos = getToDos("todos.txt")
             toDoToRemove = toDos[indexToDo]
             toDos.pop(indexToDo)
-
-            with open("todos.txt", "w") as outputFile:
-                outputFile.writelines(toDos)
-
+            writeToDos("todos.txt", toDos)
             print(f"ToDo {toDoToRemove} was removed")
         except IndexError:
             print("No item with the introduced index")
