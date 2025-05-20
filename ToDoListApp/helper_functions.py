@@ -1,4 +1,9 @@
+import os
+
+
 FILEPATH_DEFAULT = "todos.txt"
+if not os.path.exists(FILEPATH_DEFAULT):
+    FILEPATH_DEFAULT = "ToDoListApp/todos.txt"
 
 
 def getToDos(filepath=FILEPATH_DEFAULT):
