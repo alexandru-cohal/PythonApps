@@ -1,48 +1,58 @@
-from helper_functions import getToDos, writeToDos
+import helper_functions
 import time
 
-print("It is", time.strftime("%d %b %Y, %H:%M:%S"))
+DESCRIPTION_COMMANDS = ("\n Possible commands: \n"
+                        "\t show \n"
+                        "\t add + ToDo \n"
+                        "\t edit + index of ToDo \n"
+                        "\t complete + index of ToDo \n"
+                        "\t exit")
+
+print("Current date and time: ", time.strftime("%d %b %Y, %H:%M:%S"))
 
 while True:
-    userAction = input("Type add, show, edit, complete and exit: ")
-    userAction = userAction.strip()
+    # Get user command
+    print(DESCRIPTION_COMMANDS)
+    user_action = input("Command: ")
+    user_action = user_action.strip()
 
-    if userAction.startswith("add"):
-        toDo = userAction[4:]
-        toDos = getToDos()
-        toDos.append(toDo + '\n')
-        writeToDos(toDos)
+    # React based on the user command
+    if user_action.startswith("add"):
+        todo = user_action[4:]
+        list_todo = helper_functions.getToDos()
+        list_todo.append(todo + '\n')
+        helper_functions.writeToDos(list_todo)
 
-    elif userAction.startswith("show"):
-        toDos = getToDos()
-        for indexToDo, itemToDo in enumerate(toDos):
-            itemToDo = itemToDo.strip('\n')
-            print(f"{indexToDo + 1} - {itemToDo}")
+    elif user_action.startswith("show"):
+        list_todo = helper_functions.getToDos()
+        for index_todo, todo in enumerate(list_todo):
+            todo = todo.strip('\n')
+            print(f"{index_todo + 1} - {todo}")
 
-    elif userAction.startswith("edit"):
+    elif user_action.startswith("edit"):
         try:
-            indexToDo = int(userAction[5:]) - 1
-            newToDo = input("Enter new ToDo: ") + '\n'
-            toDos = getToDos()
-            toDos[indexToDo] = newToDo
-            writeToDos(toDos)
+            index_todo = int(user_action[5:]) - 1
+            new_todo = input("Enter new ToDo: ") + '\n'
+            list_todo = helper_functions.getToDos()
+            list_todo[index_todo] = new_todo
+            helper_functions.writeToDos(list_todo)
         except ValueError:
             print("Command not valid")
             continue
 
-    elif userAction.startswith("complete"):
+    elif user_action.startswith("complete"):
         try:
-            indexToDo = int(userAction[9:]) - 1
-            toDos = getToDos()
-            toDoToRemove = toDos[indexToDo]
-            toDos.pop(indexToDo)
-            writeToDos(toDos)
-            print(f"ToDo {toDoToRemove} was removed")
+            index_todo = int(user_action[9:]) - 1
+            list_todo = helper_functions.getToDos()
+            remove_todo = list_todo[index_todo]
+            list_todo.pop(index_todo)
+            helper_functions.writeToDos(list_todo)
+            print(f"ToDo {remove_todo} was removed")
         except IndexError:
             print("No item with the introduced index")
             continue
 
-    elif userAction.startswith("exit"):
+    elif user_action.startswith("exit"):
         break
 
     else:
