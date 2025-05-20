@@ -2,3 +2,5 @@
 /.idea/
 /__pycache__/
 /todos.txt
+/build/
+/dist/todos.txt
