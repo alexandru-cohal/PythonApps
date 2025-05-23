@@ -8,6 +8,7 @@ with st.form(key="contact_form"):
     form_message = st.text_area("Your message")
     form_button_submit= st.form_submit_button("Submit")
 
+    # Structure the message to be sent (i.e. subject and content)
     message_to_send = f"""\
 Subject: New email from {form_email}
 

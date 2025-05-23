@@ -1,34 +1,53 @@
 import streamlit as st
 import pandas
+from math import ceil
+
+SELF_DESCRIPTION = """Hi! I am Alex! 
+
+I am passionate about anything that blinks, beeps, spins or has at least a line of code in it."""
+
+CONTENT_DESCRIPTION = """Now the time to play around in peace with Python finally arrived! 
+
+Below you can find the apps I have built while taking the Udemy course \"Python Mega Course: Learn Python in 60 Days, 
+Build 20 Apps\". 
+
+Some more details can be found also in the [README.md](https://github.com/alexandru-cohal/PythonApps/blob/master/README.md) file of the 
+repository where I keep all these treasures :) 
+
+Feel free to contact me if you see something interesting or if you have any improvement ideas!"""
+
+PROJECTS_DESCRIPTION_FILEPATH = "projects_data.csv"
+
+# Get the projects' information from the separate CSV file
+projects_df = pandas.read_csv(PROJECTS_DESCRIPTION_FILEPATH, sep=";")
+index_middle_projects_df = ceil(len(projects_df) / 2)
 
 st.set_page_config(layout="wide")
 
-column1, column2 = st.columns(2)
+# Top part of the page - Self introduction
+column_introd_left, column_introd_right = st.columns(2)
 
-with column1:
-    st.image("images/myself.png")
+with column_introd_left:
+    st.image("images/myself.jpeg")
 
-with column2:
+with column_introd_right:
     st.title("Alexandru Cohal")
-    self_description = """Hi! I am Alex!"""
-    st.info(self_description)
+    st.info(SELF_DESCRIPTION)
 
-content = """Below you can find some of the apps I have built in Python. Feel free to contact me!"""
-st.write(content)
+st.write(CONTENT_DESCRIPTION)
 
-projects_df = pandas.read_csv("projects_data.csv", sep=";")
+# Bottom part of the page - List of Apps
+column_proj_left, column_proj_empty, column_proj_right = st.columns([1.5, 0.5, 1.5])
 
-column3, column_empty, column4 = st.columns([1.5, 0.5, 1.5])
-
-with column3:
-    for index, row in projects_df[:2].iterrows():
+with column_proj_left:
+    for index, row in projects_df[:index_middle_projects_df].iterrows():
         st.header(row["title"])
         st.write(row["description"])
         st.image("../screenshots/" + row["image"])
         st.write(f"[Source Code]({row['url']})")
 
-with column4:
-    for index, row in projects_df[2:].iterrows():
+with column_proj_right:
+    for index, row in projects_df[index_middle_projects_df:].iterrows():
         st.header(row["title"])
         st.write(row["description"])
         st.image("../screenshots/" + row["image"])

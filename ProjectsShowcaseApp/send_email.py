@@ -8,6 +8,7 @@ SENDER_AND_RECEIVER_EMAIL = os.getenv("EMAIL_AUTOMATION")
 PASSWORD_SENDER_EMAIL = os.getenv("PASS_EMAIL_AUTOMATION")
 
 def send_email(message):
+    """ Function for sending an email with the given message. """
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL(HOST, PORT, context=context) as server:

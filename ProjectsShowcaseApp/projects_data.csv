@@ -1,4 +1,4 @@
 title;description;url;image
-ProjectShowcase App;Exactly this Web App!;https://pythonhow.com;ToDoListApp.png
-ToDoList App;App for tracking the ToDos with the possibility to add, edit, remove and show ToDos. Available in CLI (Command Line Interface), GUI (Graphical User Interface) version, standalone GUI and Web versions.;https://pythonhow.com;ToDoListApp.png
-FilesZipper App;GUI App for adding multiple selected files into a Zip archive in a selected directory.;https://pythonhow.com;FilesZipperApp.png
+ProjectShowcase App;Exactly this Web App!;https://github.com/alexandru-cohal/PythonApps/tree/master/ProjectsShowcaseApp;ProjectsShowcaseApp.png
+ToDoList App;App for tracking the ToDos with the possibility to add, edit, remove and show ToDos. Available in CLI (Command Line Interface), GUI (Graphical User Interface), standalone GUI and Web versions.;https://github.com/alexandru-cohal/PythonApps/tree/master/ToDoListApp;ToDoListApp.png
+FilesZipper App;GUI App for adding multiple selected files into a Zip archive in a selected directory.;https://github.com/alexandru-cohal/PythonApps/tree/master/FilesZipperApp;FilesZipperApp.png
