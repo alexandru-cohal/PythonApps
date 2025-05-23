@@ -6,3 +6,5 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   *  [ToDoListApp/main_web.py](https://github.com/alexandru-cohal/PythonApps/blob/master/ToDoListApp/main_web.py): WebApp version. Local execution using the command `streamlit run main_web.py`. Deployed version available [here](https://todolistapp-8smxwkmdvchwawix6ytkjv.streamlit.app/). 
 * **FilesZipperApp**: App for adding multiple selected files into a Zip archive in a selected directory.
   *  [FilesZipperApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/FilesZipperApp/main.py): GUI version.
+* **ProjectsShowcaseApp**: App for presenting all the Python Apps created.
+  * [ProjectsShowcaseApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/ProjectsShowcaseApp/main.py): WebApp version. Local execution using the command `streamlit run main_web.py`. Not yet deployed.
