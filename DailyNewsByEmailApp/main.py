@@ -30,7 +30,7 @@ if articles:
             message += (str(index + 1) + " - "
                         + article["title"] + "\n"
                         + article["description"] + "\n"
-                        + article["publishedAt"].split("T")[0] + "\n"
+                        + article["publishedAt"].split("T")[1][:-1] + "\n"
                         + article["url"] + 2 * "\n")
 else:
     message += "No News :("
