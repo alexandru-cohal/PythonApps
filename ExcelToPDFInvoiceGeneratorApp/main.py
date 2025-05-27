@@ -11,11 +11,14 @@ for invoice_path in invoices_paths:
     invoice_content = pd.read_excel(invoice_path, sheet_name="Sheet 1")
 
     filename = Path(invoice_path).stem
-    invoice_nr = filename.split("-")[0]
-    invoice_date = filename.split("-")[1]
+    invoice_nr, invoice_date = filename.split("-")
 
     pdf_document = FPDF(orientation="P", unit="mm", format="A4")
     pdf_document.add_page()
     pdf_document.set_font(family="Times", style="B", size=16)
-    pdf_document.cell(w=50, h=8, txt=f"Invoice nr. {invoice_nr}")
+    pdf_document.cell(w=50, h=8, txt=f"Invoice nr. {invoice_nr}", ln=1)
+    pdf_document.cell(w=50, h=8, txt=f"Date: {invoice_date}", ln=1)
+
     pdf_document.output(f"{PDF_INVOICES_PATH}/{invoice_nr}.pdf")
+
+
