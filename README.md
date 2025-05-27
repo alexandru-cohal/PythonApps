@@ -8,3 +8,5 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   *  [FilesZipperApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/FilesZipperApp/main.py): GUI version.
 * **ProjectsShowcaseApp**: App for presenting all the Python Apps created.
   * [ProjectsShowcaseApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/ProjectsShowcaseApp/main.py): WebApp version. Local execution using the command `streamlit run main_web.py`. Not yet deployed.
+* **TopicsNotesPDFGeneratorApp**: App for generating a PDF document containing pages with grid lines for taking notes for dirrent topics, based on a CSV list containing topic names and pages required.
+  *  [TopicsNotesPDFGeneratorApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/TopicsNotesPDFGeneratorApp/main.py): CLI version
