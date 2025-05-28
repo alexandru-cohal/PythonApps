@@ -12,3 +12,5 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   *  [TopicsNotesPDFGeneratorApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/TopicsNotesPDFGeneratorApp/main.py): Script version
 * **ExcelToPDFInvoiceGeneratorApp**: App for generating PDF invoices based on XLSX orders.
   * [ExcelToPDFInvoiceGeneratorApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/ExcelToPDFInvoiceGeneratorApp/main.py): Script version
+* **DailyNewsByEmailApp**: App which sends by email the latest news obtained by using the [newsapi.org](https://newsapi.org/) API from a specific topic (i.e. now set to Eurovision) and from a specific period of time (i.e. now set to the ones from the day before).
+  * [DailyNewsByEmailApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/DailyNewsByEmailApp/main.py): Script version
