@@ -1,4 +1,6 @@
 from dotenv import load_dotenv
+load_dotenv(dotenv_path="..")
+
 import requests
 import os
 from send_email import send_email
@@ -6,8 +8,6 @@ from datetime import datetime, timedelta
 
 KEYWORD = "Eurovision"
 NEWS_MAX_LIMIT = 10
-
-load_dotenv(dotenv_path="..")
 
 # Create the request
 date_yesterday = (datetime.today()-timedelta(days=1)).strftime("%Y-%m-%d")
