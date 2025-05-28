@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 import requests
 import os
 from send_email import send_email
@@ -6,9 +7,10 @@ from datetime import datetime, timedelta
 KEYWORD = "Eurovision"
 NEWS_MAX_LIMIT = 10
 
-date_yesterday = (datetime.today()-timedelta(days=1)).strftime("%Y-%m-%d")
+load_dotenv(dotenv_path="..")
 
 # Create the request
+date_yesterday = (datetime.today()-timedelta(days=1)).strftime("%Y-%m-%d")
 url = ("https://newsapi.org/v2/everything?"
        f"q={KEYWORD}&"
        "searchIn=title,description&"
