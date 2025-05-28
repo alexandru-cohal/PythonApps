@@ -14,3 +14,5 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   * [ExcelToPDFInvoiceGeneratorApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/ExcelToPDFInvoiceGeneratorApp/main.py): Script version
 * **DailyNewsByEmailApp**: App which sends by email the latest news obtained by using the [newsapi.org](https://newsapi.org/) API from a specific topic (i.e. now set to Eurovision) and from a specific period of time (i.e. now set to the ones from the day before).
   * [DailyNewsByEmailApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/DailyNewsByEmailApp/main.py): Script version
+* **DailyAstronomyPhotoApp**: App which gets the daily astronomy photo and its description using the [APOD NASA](https://api.nasa.gov/) API and displays them.
+  * [DailyAstronomyPhotoApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/DailyAstronomyPhotoApp/main.py): WebApp version 
