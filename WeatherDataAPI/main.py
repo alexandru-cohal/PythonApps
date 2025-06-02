@@ -23,6 +23,13 @@ def about(station, date):
             "date": date,
             "temperature": temperature}
 
+@app.route("/api/v1/<station>")
+def all_data_one_station(station):
+    filename_station = "data_small/TG_STAID" + str(station).zfill(6) + ".txt"
+    data_station = pd.read_csv(filename_station,
+                               skiprows=20,
+                               parse_dates=["    DATE"])
+    return data_station.to_dict(orient="records")
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
