@@ -16,13 +16,16 @@ st.subheader(f"{display_option} for the next {days} day(s) in {location}")
 
 # Get the desired temperature / sky data
 if location:
-    timestamps, weather_data = get_weather_data(location, days, display_option)
+    try:
+        timestamps, weather_data = get_weather_data(location, days, display_option)
 
-    if display_option == "Temperature":
-        # Add the temperature plot
-        figure = px.line(x=timestamps, y=weather_data, labels={"x": "Date", "y": "Temperature (C)"})
-        st.plotly_chart(figure)
-    else:
-        # Add the sky images
-        sky_images_paths = [SKY_IMAGES_PATHS[sky_type] for sky_type in weather_data]
-        st.image(sky_images_paths, width=150)
+        if display_option == "Temperature":
+            # Add the temperature plot
+            figure = px.line(x=timestamps, y=weather_data, labels={"x": "Date", "y": "Temperature (C)"})
+            st.plotly_chart(figure)
+        else:
+            # Add the sky images
+            sky_images_paths = [SKY_IMAGES_PATHS[sky_type] for sky_type in weather_data]
+            st.image(sky_images_paths, width=150)
+    except KeyError:
+        st.error("The location does not exist!")

@@ -3,6 +3,7 @@ load_dotenv("../.env")
 
 import requests
 import os
+from datetime import datetime
 
 NUM_ENTRIES_PER_DAY = 8
 
@@ -17,7 +18,7 @@ def get_weather_data(location, days, display_option):
 
     response_filtered = response_raw["list"][:NUM_ENTRIES_PER_DAY*days]
 
-    timestamps = [response_entry["dt"] for response_entry in response_filtered]
+    timestamps = [datetime.fromtimestamp(response_entry["dt"]) for response_entry in response_filtered]
     if display_option == "Temperature":
         weather_data = [response_entry["main"]["temp"] for response_entry in response_filtered]
     else:
