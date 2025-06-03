@@ -16,3 +16,5 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   * [DailyNewsByEmailApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/DailyNewsByEmailApp/main.py): Script version
 * **DailyAstronomyPhotoApp**: App which gets the daily astronomy photo and its description using the [APOD NASA](https://api.nasa.gov/) API and displays them.
   * [DailyAstronomyPhotoApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/DailyAstronomyPhotoApp/main.py): WebApp version 
+* **WeatherDataAPI**: REST API which provides temperature values for requests for a specific station and for a specific day, year or complete history.
+  * [WeatherDataAPI/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/WeatherDataAPI/main.py): REST API
