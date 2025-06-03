@@ -10,8 +10,12 @@ SKY_IMAGES_PATHS = {"Clear":    "images_sky/clear.png",
 # Set the GUI and get the needed information
 st.title("Weather Forecast")
 location = st.text_input("Location: ")
-days = st.slider("Forecast Days", min_value=1, max_value=5, help="Select the number of days for the forecast")
-display_option = st.selectbox("Data to view", options=("Temperature", "Sky"))
+days = st.slider("Forecast Days",
+                 min_value=1,
+                 max_value=5,
+                 help="Select the number of days for the forecast")
+display_option = st.selectbox("Data to view",
+                              options=("Temperature", "Sky"))
 st.subheader(f"{display_option} for the next {days} day(s) in {location}")
 
 # Get the desired temperature / sky data
@@ -21,11 +25,15 @@ if location:
 
         if display_option == "Temperature":
             # Add the temperature plot
-            figure = px.line(x=timestamps, y=weather_data, labels={"x": "Date", "y": "Temperature (C)"})
+            figure = px.line(x=timestamps,
+                             y=weather_data,
+                             labels={"x": "Date", "y": "Temperature (C)"})
             st.plotly_chart(figure)
         else:
             # Add the sky images
             sky_images_paths = [SKY_IMAGES_PATHS[sky_type] for sky_type in weather_data]
-            st.image(sky_images_paths, width=150)
+            st.image(sky_images_paths,
+                     width=100,
+                     caption=timestamps)
     except KeyError:
         st.error("The location does not exist!")
