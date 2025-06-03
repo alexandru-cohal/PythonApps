@@ -6,12 +6,13 @@
 </head>
 <body>
     <h1>Weather Data API</h1>
-    <p>URL format for a specific station and a specific date: http://127.0.0.1:5001/api/v1/station/date</p>
-    <p>URL example: http://127.0.0.1:5001/api/v1/10/1988-10-25</p>
-    <p>URL format for a specific station and all records: http://127.0.0.1:5001/api/v1/station</p>
-    <p>URL example: http://127.0.0.1:5001/api/v1/10</p>
-    <p>URL format for a specific station, specific year and all records: http://127.0.0.1:5001/api/v1/yearly/station/year</p>
-    <p>URL example: http://127.0.0.1:5001/api/v1/yearly/10/1999</p>
+    <h3>URL format for requesting the temperature for a specific station and a specific date: http://127.0.0.1:5001/api/v1/station/date</h3>
+    <p><i>Example:</i> http://127.0.0.1:5001/api/v1/50/2017-08-15</p>
+    <h3>URL format for requesting the temperatures for a specific station and all dates: http://127.0.0.1:5001/api/v1/station</h3>
+    <p><i>Example:</i> http://127.0.0.1:5001/api/v1/50</p>
+    <h3>URL format for requesting the temperatures for a specific station, a specific year and all dates: http://127.0.0.1:5001/api/v1/yearly/station/year</h3>
+    <p><i>Example:</i> http://127.0.0.1:5001/api/v1/yearly/50/2017</p>
+    <h3>Available stations and their IDs:</h3>
     <p>{{data|safe}}</p>
 </body>
 </html>

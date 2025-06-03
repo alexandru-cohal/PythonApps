@@ -13,7 +13,7 @@ def home():
 
 
 @app.route("/api/v1/<station>/<date>")
-def about(station, date):
+def data_one_station_one_date(station, date):
     filename_station = "data_small/TG_STAID" + str(station).zfill(6) + ".txt"
     data_station = pd.read_csv(filename_station,
                                skiprows=20,
@@ -31,6 +31,7 @@ def all_data_one_station(station):
     data_station = pd.read_csv(filename_station,
                                skiprows=20,
                                parse_dates=["    DATE"])
+
     return data_station.to_dict(orient="records")
 
 
@@ -40,6 +41,7 @@ def all_data_one_year(station, year):
     data_station = pd.read_csv(filename_station, skiprows=20)
     data_station["    DATE"] = data_station["    DATE"].astype(str)
     data_year = data_station[data_station["    DATE"].str.startswith(str(year))]
+
     return data_year.to_dict(orient="records")
 
 
