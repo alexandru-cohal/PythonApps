@@ -18,3 +18,5 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   * [DailyAstronomyPhotoApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/DailyAstronomyPhotoApp/main.py): WebApp version 
 * **WeatherDataAPI**: REST API which provides temperature values for requests for a specific station and for a specific day, year or complete history.
   * [WeatherDataAPI/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/WeatherDataAPI/main.py): REST API
+* **WeatherForecastDashboardApp**: App which displays the weather forecast (temperature or sky) for a specific location and for a specific period of time (up to 5 days).
+  * [WeatherForecastDashboardApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/WeatherForecastDashboardApp/main.py): WebApp version 
