@@ -6,6 +6,7 @@ import time
 from emailing import send_email
 import glob
 import os
+from threading import Thread
 
 IMAGES_PATH = "images"
 KERNEL_SIZE_GAUSSIAN_BLUR = (21, 21)
@@ -21,6 +22,13 @@ def clean_images_folder():
     images = glob.glob(IMAGES_PATH + "/*.png")
     for image in images:
         os.remove(image)
+
+
+def send_and_clean(image_to_send):
+    """ Function used to created a separate Thread for sending the email and cleaning the folder
+    with saved frames only after the sending is completed """
+    send_email(image_to_send)
+    clean_images_folder()
 
 
 video = cv2.VideoCapture(0)
@@ -80,8 +88,9 @@ while True:
 
     # If the object / person just exited, send the email
     if latest_boundary_existent[0] == True and latest_boundary_existent[1] == False:
-        send_email(image_to_send)
-        clean_images_folder()
+        send_and_clean_thread = Thread(target=send_and_clean, args=(image_to_send, ))
+        send_and_clean_thread.daemon = True
+        send_and_clean_thread.start()
 
     # Display the frame
     cv2.imshow("My video", frame_bgr)
