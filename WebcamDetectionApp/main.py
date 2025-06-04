@@ -5,13 +5,23 @@ import cv2
 import time
 from emailing import send_email
 import glob
+import os
 
+IMAGES_PATH = "images"
 KERNEL_SIZE_GAUSSIAN_BLUR = (21, 21)
 TH_FRAME_DIFFERENCE = 50
 NEW_VALUE_FRAME_DIFFERENCE = 255
 TH_CONTOUR_AREA_PX = 5000
 COLOR_BOUNDING_RECTANGLE = (0, 255, 0)
 WIDTH_BOUNDING_RECTANGLE_PX = 3
+
+
+def clean_images_folder():
+    """ Function for deleting the saved frames after one of them is used as attachment in an email """
+    images = glob.glob(IMAGES_PATH + "/*.png")
+    for image in images:
+        os.remove(image)
+
 
 video = cv2.VideoCapture(0)
 time.sleep(1)
@@ -57,20 +67,21 @@ while True:
         if boundary.any():
             boundary_existent = True
 
-            cv2.imwrite(f"images/{count_image}.png", frame_bgr)
+            cv2.imwrite(f"{IMAGES_PATH}/{count_image}.png", frame_bgr)
             count_image = count_image + 1
 
             all_images = glob.glob("images/*.png")
-            index_image_middle = int(len(all_images) / 2)
-            image_middle = all_images[index_image_middle]
+            index_image_to_send = int(len(all_images) / 2)
+            image_to_send = all_images[index_image_to_send]
 
-    # Update the list keeping the latest 2 statuses showing whether an object exists or not
+    # Update the list keeping the latest 2 statuses showing whether an object / a person exists or not
     latest_boundary_existent.append(boundary_existent)
     latest_boundary_existent = latest_boundary_existent[-2:]
 
-    # If the object just exited, send the email
+    # If the object / person just exited, send the email
     if latest_boundary_existent[0] == True and latest_boundary_existent[1] == False:
-        send_email(image_middle)
+        send_email(image_to_send)
+        clean_images_folder()
 
     # Display the frame
     cv2.imshow("My video", frame_bgr)

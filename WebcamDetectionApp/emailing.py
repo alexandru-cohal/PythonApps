@@ -10,8 +10,8 @@ PASSWORD_SENDER_EMAIL = os.getenv("PASS_EMAIL_AUTOMATION")
 
 def send_email(image_path):
     email_message = EmailMessage()
-    email_message["Subject"] = "New person showed up!"
-    email_message.set_content("A new person appeared!")
+    email_message["Subject"] = "A new object / person just appeared!"
+    email_message.set_content("A new object / person just appeared! Here it is:")
     with open(image_path, "rb") as file:
         content = file.read()
     email_message.add_attachment(content, maintype="image", subtype=imghdr.what(image_path))
