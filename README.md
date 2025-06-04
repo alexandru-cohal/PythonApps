@@ -20,3 +20,6 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   * [WeatherDataAPI/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/WeatherDataAPI/main.py): REST API
 * **WeatherForecastDashboardApp**: App which displays the weather forecast (temperature or sky) for a specific location and for a specific period of time (up to 5 days).
   * [WeatherForecastDashboardApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/WeatherForecastDashboardApp/main.py): WebApp version 
+* **BookAnalysisNotebook**: Jupyter Notebook which contains different analyses of a book (e.g. extraction of chapter titles, most used words, sentiment analysis of each chapter)
+  * [BookAnalysisNotebook/regex_book_analysis.ipynb](https://github.com/alexandru-cohal/PythonApps/blob/master/BookAnalysisNotebook/regex_book_analysis.ipynb): Jupyter Notebook 
+  * [BookAnalysisNotebook/nlp_book_analysis.ipynb](https://github.com/alexandru-cohal/PythonApps/blob/master/BookAnalysisNotebook/nlp_book_analysis.ipynb): Jupyter Notebook
