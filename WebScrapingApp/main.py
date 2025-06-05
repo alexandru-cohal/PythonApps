@@ -1,17 +1,21 @@
-import time
-
 from dotenv import load_dotenv
 load_dotenv("../.env")
 
 import requests
 import selectorlib
 from send_email import send_email
+import time
+import sqlite3
 
 
 URL_TO_SCRAPE = "https://programmer100.pythonanywhere.com/tours/"
 HEADERS_SCRAPING = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 EVENTS_FILEPATH = "events_data.txt"
-WAITING_PERIOD_SEC = 60
+DATABASE_FILEPATH = "events_data.db"
+WAITING_PERIOD_SEC = 5
+
+
+connection = sqlite3.connect(DATABASE_FILEPATH)
 
 
 def scrape_url(url):
@@ -28,16 +32,25 @@ def extract_event_information_from_scraped_data(source):
     return value
 
 
-def store_event_in_file(extracted):
-    """ Store a new event in the events file """
-    with open(EVENTS_FILEPATH, "a") as file:
-        file.write(extracted + "\n")
+def store_event_in_db(extracted):
+    """ Store and event into the database """
+    row_elements = extracted.split(",")
+    row_elements = [item.strip() for item in row_elements]
+    cursor = connection.cursor()
+    cursor.execute("INSERT INTO events VALUES(?,?,?)", row_elements)
+    connection.commit()
 
 
-def read_events_from_file():
-    """ Read the events from the events file """
-    with open(EVENTS_FILEPATH, "r") as file:
-        return file.read()
+def read_events_from_db(extracted):
+    """ Select from the database the entries which have the band, city and date matching,
+     in order to check if the event was already stored"""
+    row_elements = extracted.split(",")
+    row_elements = [item.strip() for item in row_elements]
+    band, city, date = row_elements
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM events WHERE band=? AND city=? AND date=?", (band, city, date))
+    rows = cursor.fetchall()
+    return rows
 
 
 if __name__ == "__main__":
@@ -45,10 +58,10 @@ if __name__ == "__main__":
         scraped_data = scrape_url(URL_TO_SCRAPE)
         extracted_data = extract_event_information_from_scraped_data(scraped_data)
 
-        stored_events = read_events_from_file()
         if extracted_data != "No upcoming tours":
-            if extracted_data not in stored_events:
-                store_event_in_file(extracted_data)
+            stored_events = read_events_from_db(extracted_data)
+            if not stored_events:
+                store_event_in_db(extracted_data)
                 message = f"""\
 Subject: A new event was found! 
 
