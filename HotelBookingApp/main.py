@@ -2,18 +2,25 @@ import pandas
 
 HOTELS_LIST_FILEPATH = "hotels.csv"
 
-df_hotels = pandas.read_csv(HOTELS_LIST_FILEPATH)
+df_hotels = pandas.read_csv(HOTELS_LIST_FILEPATH, dtype={"id": str})
 
 
 class Hotel:
-    def __init__(self, id_hotel):
-        pass
+    def __init__(self, hotel_id):
+        self.hotel_id = hotel_id
 
     def book(self):
-        pass
+        """ Book a hotel by changing its availability """
+        df_hotels.loc[df_hotels["id"] == self.hotel_id, "available"] = "no"
+        df_hotels.to_csv(HOTELS_LIST_FILEPATH, index = False)
 
     def available(self):
-        pass
+        """ Check if the hotel is available """
+        availability = df_hotels.loc[df_hotels["id"] == self.hotel_id, "available"].squeeze()
+        if availability == "yes":
+            return True
+        else:
+            return False
 
 
 class ReservationTicket:
@@ -26,8 +33,8 @@ class ReservationTicket:
 
 if __name__ == "__main__":
     print(df_hotels)
-    id_hotel = input("Enter the ID of the hotel: ")
-    hotel = Hotel(id_hotel)
+    hotel_id = input("Enter the ID of the hotel: ")
+    hotel = Hotel(hotel_id)
 
     if hotel.available():
         hotel.book()
