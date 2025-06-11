@@ -30,6 +30,7 @@ class Hotel:
 
 class SpaHotel(Hotel):
     def book_spa_package(self):
+        """ Book a spa package (currently no checks are implemented) """
         pass
 
 
@@ -39,8 +40,9 @@ class ReservationTicket:
         self.hotel_object = hotel_object
 
     def generate(self):
+        """ Generate the hotel reservation ticket """
         content = f"""
-        Thank you for your reservation!
+        Thank you for your Hotel reservation!
         Here are your booking data:
         Name: {self.customer_name}
         Hotel name: {self.hotel_object.hotel_name}
@@ -54,6 +56,7 @@ class SpaReservationTicket:
         self.hotel_object = hotel_object
 
     def generate(self):
+        """ Generate the spa reservation ticket """
         content = f"""
         Thank you for your Spa reservation!
         Here are your booking data:
@@ -68,6 +71,7 @@ class CreditCard:
         self.number = number
 
     def validate(self, expiration, holder, cvc):
+        """ Check if the provided credit card is valid """
         card_data = {"number": self.number, "expiration": expiration, "holder": holder, "cvc":cvc}
         if card_data in df_cards:
             return True
@@ -77,6 +81,7 @@ class CreditCard:
 
 class SecureCreditCard(CreditCard):
     def authenticate(self, given_password):
+        """ Check if the secure authentication for using the credit card is valid """
         password = df_cards_security.loc[df_cards_security["number"] == self.number, "password"].squeeze()
         if password == given_password:
             return True
@@ -85,24 +90,34 @@ class SecureCreditCard(CreditCard):
 
 
 if __name__ == "__main__":
-    print(df_hotels)
+    print("List of hotels:\n", df_hotels)
+
     hotel_id = input("Enter the ID of the hotel: ")
     hotel = SpaHotel(hotel_id)
 
+    # Check hotel availability
     if hotel.available():
+        # Check credit card validity and secure authentication validity
         credit_card = SecureCreditCard(number="1234")
         if credit_card.validate(expiration="12/26",
                                 holder="JOHN SMITH",
                                 cvc="123"):
             if credit_card.authenticate(given_password="mypass"):
+                # Book the hotel
                 hotel.book()
+
+                # Generate the hotel reservation ticket
                 name = input("Enter your name: ")
                 reservation_ticket = ReservationTicket(name, hotel)
                 print(reservation_ticket.generate())
 
+                # Check the desire to book also a spa package
                 spa_option = input("Do you want to book also a spa package? (yes/no) ")
                 if spa_option == "yes":
+                    # Book the spa package
                     hotel.book_spa_package()
+
+                    # Generate the spa reservation ticket
                     spa_ticket = SpaReservationTicket(name, hotel)
                     print(spa_ticket.generate())
                 else:
@@ -110,6 +125,6 @@ if __name__ == "__main__":
             else:
                 print("Credit card authentication failed")
         else:
-            print("There was a problem with the credit card")
+            print("Credit card validation failed")
     else:
         print("The hotel is not free")
