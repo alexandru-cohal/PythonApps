@@ -59,7 +59,6 @@ class MainWindow(QMainWindow):
 
         self.table.cellClicked.connect(self.cell_clicked)
 
-
     def load_data(self):
         """ Load the data from the database and display it in the table from the main window """
 
@@ -192,7 +191,56 @@ class SearchDialog(QDialog):
 
 
 class EditDialog(QDialog):
-    pass
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Edit Student Data")
+        self.setFixedWidth(300)
+        self.setFixedHeight(300)
+
+        layout = QVBoxLayout()
+
+        index_selected_row = app_main_window.table.currentRow()
+        self.selected_student_id = app_main_window.table.item(index_selected_row, 0).text()
+        selected_student_name = app_main_window.table.item(index_selected_row, 1).text()
+        selected_course_name = app_main_window.table.item(index_selected_row, 2).text()
+        selected_mobile_number = app_main_window.table.item(index_selected_row, 3).text()
+
+        # Add the LineEdit widget for the student's name
+        self.student_name = QLineEdit(selected_student_name)
+        self.student_name.setPlaceholderText("Name")
+        layout.addWidget(self.student_name)
+
+        # Add the ComboBox widget for the student's course
+        self.course_name = QComboBox()
+        courses = ["Biology", "Math", "Astronomy", "Physics"]
+        self.course_name.addItems(courses)
+        self.course_name.setCurrentText(selected_course_name)
+        layout.addWidget(self.course_name)
+
+        # Add the LineEdit widget for the student's mobile number
+        self.mobile_number = QLineEdit(selected_mobile_number)
+        self.mobile_number.setPlaceholderText("Mobile")
+        layout.addWidget(self.mobile_number)
+
+        # Add the submit button
+        button = QPushButton("Update")
+        button.clicked.connect(self.update_student)
+        layout.addWidget(button)
+
+        self.setLayout(layout)
+
+    def update_student(self):
+        """ Update the student's details """
+
+        connection = sqlite3.connect("database.db")
+        cursor = connection.cursor()
+        cursor.execute("UPDATE students SET name = ?, course = ?, mobile = ? WHERE id = ?",
+                       (self.student_name.text(), self.course_name.itemText(self.course_name.currentIndex()),
+                        self.mobile_number.text(), self.selected_student_id))
+        connection.commit()
+        cursor.close()
+        connection.close()
+        app_main_window.load_data()
 
 
 class DeleteDialog(QDialog):
