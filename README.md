@@ -4,7 +4,7 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   *  [ToDoListApp/main_cli.py](https://github.com/alexandru-cohal/PythonApps/blob/master/ToDoListApp/main_cli.py): CLI (Command Line Interface) version.
   *  [ToDoListApp/main_gui.py](https://github.com/alexandru-cohal/PythonApps/blob/master/ToDoListApp/main_gui.py): GUI (Graphical User Interface) version. Standalone executable available [here](https://github.com/alexandru-cohal/PythonApps/blob/master/ToDoListApp/dist/main_gui.exe).
   *  [ToDoListApp/main_web.py](https://github.com/alexandru-cohal/PythonApps/blob/master/ToDoListApp/main_web.py): WebApp version. Local execution using the command `streamlit run main_web.py`. Deployed version available [here](https://todolistapp-8smxwkmdvchwawix6ytkjv.streamlit.app/).
-  *  **Libraries, Tools & Concepts**: GUI with _FreeSimpleGUI_, standalone executable generation with _Pyinstaller_, WebApp with _Streamlit_, WebApp deployment.
+  *  **Libraries, Tools & Concepts**: GUI with _FreeSimpleGUI_, standalone executable generation with _Pyinstaller_, WebApp with _Streamlit_, WebApp deployment, generation of _requirements.txt_ file.
 
 * **FilesZipperApp**: App for adding multiple selected files into a Zip archive in a selected directory.
   *  [FilesZipperApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/FilesZipperApp/main.py): GUI version.
@@ -12,7 +12,7 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
 
 * **ProjectsShowcaseApp**: App for presenting all the Python Apps created.
   * [ProjectsShowcaseApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/ProjectsShowcaseApp/main.py): WebApp version. Local execution using the command `streamlit run main_web.py`. Not yet deployed.
-  * **Libraries, Tools & Concepts**: _Pandas_, WebApp with _Streamlit_, CSV file reading, Email sending with _smtplib_ and _ssl_.
+  * **Libraries, Tools & Concepts**: GUI design with [Figma](https://www.figma.com/), _Pandas_, WebApp with _Streamlit_, CSV file reading, Email sending with _smtplib_ and _ssl_.
 
 * **TopicsNotesPDFGeneratorApp**: App for generating a PDF document containing pages with grid lines for taking notes for dirrent topics, based on a CSV list containing topic names and pages required.
   *  [TopicsNotesPDFGeneratorApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/TopicsNotesPDFGeneratorApp/main.py): Script version
@@ -50,7 +50,7 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
 
 * **WebScrapingApp**: App which scraps information about new events from a [website](https://programmer100.pythonanywhere.com/tours/) and updates a database and sends a notification emails when new such events are found.
   * [WebScrapingApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/WebScrapingApp/main.py): Script version
-  * **Libraries, Tools & Concepts**: Web data scraping with _requests_, processing of scraped data with _selectorlib_ and YAML CSS extractors, SQLite databases with _sqlite3_, Email sending with _smtplib_ and _ssl_.
+  * **Libraries, Tools & Concepts**: Web data scraping with _requests_, processing of scraped data with _selectorlib_ and YAML CSS extractors, SQLite databases with _sqlite3_ and [DB Browser for SQLite](https://sqlitebrowser.org/), Email sending with _smtplib_ and _ssl_.
 
 * **HotelBookingApp**: App for booking a hotel (if available) and a spa package if there is availability and the credit card is validated.
   * [HotelBookingApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/HotelBookingApp/main.py): CLI version.
