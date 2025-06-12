@@ -1,7 +1,7 @@
-from PyQt6.QtGui import QAction
 from PyQt6.QtWidgets import QMainWindow, QApplication, QTableWidget, QTableWidgetItem, QDialog, \
     QVBoxLayout, QLineEdit, QComboBox, QPushButton
 from PyQt6.QtGui import QAction
+from PyQt6.QtCore import Qt
 import sys
 import sqlite3
 
@@ -20,6 +20,11 @@ class MainWindow(QMainWindow):
         add_student_action = QAction("Add Student", self)
         add_student_action.triggered.connect(self.insert)
         file_menu_item.addAction(add_student_action)
+
+        edit_menu_item = self.menuBar().addMenu("&Edit")
+        search_action = QAction("Search", self)
+        search_action.triggered.connect(self.search)
+        edit_menu_item.addAction(search_action)
 
         help_menu_item = self.menuBar().addMenu("&Help")
         about_action = QAction("About", self)
@@ -57,6 +62,11 @@ class MainWindow(QMainWindow):
     def insert(self):
         """ Display the insert window """
         dialog = InsertDialog()
+        dialog.exec()
+
+    def search(self):
+        """ Display the search window """
+        dialog = SearchDialog()
         dialog.exec()
 
 
@@ -108,6 +118,37 @@ class InsertDialog(QDialog):
 
         # Refresh the displayed table data in the main window
         app_main_window.load_data()
+
+
+class SearchDialog(QDialog):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("Search Student")
+        self.setFixedWidth(300)
+        self.setFixedHeight(300)
+
+        layout = QVBoxLayout()
+
+        # Add the LineEdit widget for the student's name
+        self.student_name = QLineEdit()
+        self.student_name.setPlaceholderText("Name")
+        layout.addWidget(self.student_name)
+
+        # Add the search button
+        button = QPushButton("Search")
+        button.clicked.connect(self.search)
+        layout.addWidget(button)
+
+        self.setLayout(layout)
+
+    def search(self):
+        """ Search the table for the given name """
+
+        name_to_search = self.student_name.text()
+        matches = app_main_window.table.findItems(name_to_search, Qt.MatchFlag.MatchFixedString)
+        for match in matches:
+            app_main_window.table.item(match.row(), 1).setSelected(True)
 
 
 if __name__ == "__main__":
