@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QMainWindow, QApplication, QTableWidget, QTableWidgetItem, QDialog, \
-    QVBoxLayout, QLineEdit, QComboBox, QPushButton
-from PyQt6.QtGui import QAction
+    QVBoxLayout, QLineEdit, QComboBox, QPushButton, QToolBar
+from PyQt6.QtGui import QAction, QIcon
 from PyQt6.QtCore import Qt
 import sys
 import sqlite3
@@ -14,15 +14,16 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("Student Management App")
+        self.setMinimumSize(800, 600)
 
         # Set the menu bar
         file_menu_item = self.menuBar().addMenu("&File")
-        add_student_action = QAction("Add Student", self)
+        add_student_action = QAction(QIcon("icons/add.png"), "Add Student", self)
         add_student_action.triggered.connect(self.insert)
         file_menu_item.addAction(add_student_action)
 
         edit_menu_item = self.menuBar().addMenu("&Edit")
-        search_action = QAction("Search", self)
+        search_action = QAction(QIcon("icons/search.png"), "Search", self)
         search_action.triggered.connect(self.search)
         edit_menu_item.addAction(search_action)
 
@@ -43,6 +44,14 @@ class MainWindow(QMainWindow):
         # A central widget is needed when the QMainWindow is used.
         # Instead, a layout is used when QWidget is used (i.e. when multiple widgets are added).
         self.setCentralWidget(self.table)
+
+        # Set the tool bar
+        toolbar = QToolBar()
+        toolbar.setMovable(True)
+        self.addToolBar(toolbar)
+
+        toolbar.addAction(add_student_action)
+        toolbar.addAction(search_action)
 
     def load_data(self):
         """ Load the data from the database and display it in the table from the main window """
