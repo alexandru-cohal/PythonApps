@@ -28,3 +28,5 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   * [WebcamDetectionApp/main_web.py](https://github.com/alexandru-cohal/PythonApps/blob/master/WebcamDetectionApp/main_web.py): WebApp version. Local execution using the command `streamlit run main_web.py`.
 * **WebScrapingApp**: App which scraps information about new events from a [website](https://programmer100.pythonanywhere.com/tours/) and updates a database and sends a notification emails when new such events are found.
   * [WebScrapingApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/WebScrapingApp/main.py): Script version
+* **HotelBookingApp**: App for booking a hotel (if available) and a spa package if there is availability and the credit card is validated.
+  * [HotelBookingApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/HotelBookingApp/main.py): CLI version.
