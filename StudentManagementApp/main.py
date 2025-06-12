@@ -1,5 +1,5 @@
 from PyQt6.QtWidgets import QMainWindow, QApplication, QTableWidget, QTableWidgetItem, QDialog, \
-    QVBoxLayout, QLineEdit, QComboBox, QPushButton, QToolBar
+    QVBoxLayout, QLineEdit, QComboBox, QPushButton, QToolBar, QStatusBar
 from PyQt6.QtGui import QAction, QIcon
 from PyQt6.QtCore import Qt
 import sys
@@ -53,6 +53,13 @@ class MainWindow(QMainWindow):
         toolbar.addAction(add_student_action)
         toolbar.addAction(search_action)
 
+        # Set the status bar
+        self.statusbar = QStatusBar()
+        self.setStatusBar(self.statusbar)
+
+        self.table.cellClicked.connect(self.cell_clicked)
+
+
     def load_data(self):
         """ Load the data from the database and display it in the table from the main window """
 
@@ -77,6 +84,30 @@ class MainWindow(QMainWindow):
         """ Display the search window """
         dialog = SearchDialog()
         dialog.exec()
+
+    def cell_clicked(self):
+        # Remove the already added buttons from the status bar, if any
+        children = self.findChildren(QPushButton)
+        if children:
+            for child in children:
+                self.statusbar.removeWidget(child)
+
+        # Add buttons to the status bar
+        edit_button = QPushButton("Edit Record")
+        edit_button.clicked.connect(self.edit)
+        self.statusbar.addWidget(edit_button)
+
+        delete_button = QPushButton("Delete Record")
+        delete_button.clicked.connect(self.edit)
+        self.statusbar.addWidget(delete_button)
+
+    def edit(self):
+        dialog = EditDialog()
+        dialog.exec()
+
+    def delete(self):
+        dialog = DeleteDialog()
+        dialog.exec
 
 
 class InsertDialog(QDialog):
@@ -158,6 +189,14 @@ class SearchDialog(QDialog):
         matches = app_main_window.table.findItems(name_to_search, Qt.MatchFlag.MatchFixedString)
         for match in matches:
             app_main_window.table.item(match.row(), 1).setSelected(True)
+
+
+class EditDialog(QDialog):
+    pass
+
+
+class DeleteDialog(QDialog):
+    pass
 
 
 if __name__ == "__main__":
