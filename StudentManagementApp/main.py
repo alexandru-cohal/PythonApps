@@ -31,6 +31,7 @@ class MainWindow(QMainWindow):
         help_menu_item = self.menuBar().addMenu("&Help")
         about_action = QAction("About", self)
         help_menu_item.addAction(about_action)
+        about_action.triggered.connect(self.about)
 
         # If the Help item is not displayed, add this line:
         # about_action.setMenuRole(QAction.MenuRole.NoRole)
@@ -107,6 +108,10 @@ class MainWindow(QMainWindow):
 
     def delete(self):
         dialog = DeleteDialog()
+        dialog.exec()
+
+    def about(self):
+        dialog = AboutDialog()
         dialog.exec()
 
 
@@ -285,6 +290,22 @@ class DeleteDialog(QDialog):
         confirmation_widget.setWindowTitle("Success")
         confirmation_widget.setText("The record was deleted successfully")
         confirmation_widget.exec()
+
+
+class AboutDialog(QMessageBox):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("About")
+
+        content = """ 
+        This app is a Student Management System.
+        The name, course and mobile phone number of each student are stored in a database.
+        New records can be added.
+        The existent records of a student can be updated or removed. 
+        The records can be searched for a provided student name. 
+        """
+        self.setText(content)
 
 
 if __name__ == "__main__":
