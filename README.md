@@ -64,3 +64,8 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   * [StudentManagementApp/main_sqlite.py](https://github.com/alexandru-cohal/PythonApps/blob/master/StudentManagementApp/main_sqlite.py): GUI version which uses SQLite database system.
   * [StudentManagementApp/main_mysql.py](https://github.com/alexandru-cohal/PythonApps/blob/master/StudentManagementApp/main_mysql.py): GUI version which uses MySQL database system.
   * **Libraries, Tools & Concepts**: OOP, GUI with _PyQt6_, SQLite databases with _sqlite3_, MySQL databases with _mysql.connector_.
+
+* **BrowserAutomationApp**: App for automatizing actions (e.g. login, filling in a form and submitting it, downloading a file) on a website in the browser.
+  * [BrowserAutomationApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/BrowserAutomationApp/main.py): Script version.
+  * [BrowserAutomationApp/main_gui.py](https://github.com/alexandru-cohal/PythonApps/blob/master/BrowserAutomationApp/main_gui.py): GUI version.
+  * **Libraries, Tools & Concepts**: OOP, GUI with _Tkinter_, web automation in the Google Chrome browser with _Selenium_.
