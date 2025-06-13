@@ -7,6 +7,19 @@ import sys
 import sqlite3
 
 
+DATABASE_FILEPATH = "database.db"
+
+
+class DatabaseConnection:
+    def __init__(self, database_file=DATABASE_FILEPATH):
+        self.database_file = database_file
+
+    def connect(self):
+        """ Create a connection to the database """
+        connection = sqlite3.connect(self.database_file)
+        return connection
+
+
 # The MainWindow class inherits QMainWindow and not QWidget in order to create divisions within
 # the main window, add a menu bar, a tool bar, a status bar, etc.
 class MainWindow(QMainWindow):
@@ -64,7 +77,7 @@ class MainWindow(QMainWindow):
     def load_data(self):
         """ Load the data from the database and display it in the table from the main window """
 
-        connection = sqlite3.connect("database.db")
+        connection = DatabaseConnection().connect()
         result = connection.execute("SELECT * FROM students")
 
         # Reset the table, in order to not add the new data in continuation, but from the beginning
@@ -78,15 +91,19 @@ class MainWindow(QMainWindow):
 
     def insert(self):
         """ Display the insert window """
+
         dialog = InsertDialog()
         dialog.exec()
 
     def search(self):
         """ Display the search window """
+
         dialog = SearchDialog()
         dialog.exec()
 
     def cell_clicked(self):
+        """ Behaviour when a cell table is clocked => Display the status bar """
+
         # Remove the already added buttons from the status bar, if any
         children = self.findChildren(QPushButton)
         if children:
@@ -103,14 +120,20 @@ class MainWindow(QMainWindow):
         self.statusbar.addWidget(delete_button)
 
     def edit(self):
+        """ Display the edit window """
+
         dialog = EditDialog()
         dialog.exec()
 
     def delete(self):
+        """ Display the delete window """
+
         dialog = DeleteDialog()
         dialog.exec()
 
     def about(self):
+        """ Display the about window """
+
         dialog = AboutDialog()
         dialog.exec()
 
@@ -149,11 +172,12 @@ class InsertDialog(QDialog):
 
     def add_student(self):
         """ Add a new student to the database """
+
         name = self.student_name.text()
         course = self.course_name.itemText(self.course_name.currentIndex())
         mobile = self.mobile_number.text()
 
-        connection = sqlite3.connect("database.db")
+        connection = DatabaseConnection().connect()
         cursor = connection.cursor()
         cursor.execute("INSERT INTO students (name, course, mobile) VALUES (?, ?, ?)",
                        (name, course, mobile))
@@ -238,7 +262,7 @@ class EditDialog(QDialog):
     def update_student(self):
         """ Update the student's details """
 
-        connection = sqlite3.connect("database.db")
+        connection = DatabaseConnection().connect()
         cursor = connection.cursor()
         cursor.execute("UPDATE students SET name = ?, course = ?, mobile = ? WHERE id = ?",
                        (self.student_name.text(), self.course_name.itemText(self.course_name.currentIndex()),
@@ -274,7 +298,7 @@ class DeleteDialog(QDialog):
         index_selected_row = app_main_window.table.currentRow()
         selected_student_id = app_main_window.table.item(index_selected_row, 0).text()
 
-        connection = sqlite3.connect("database.db")
+        connection = DatabaseConnection().connect()
         cursor = connection.cursor()
         cursor.execute("DELETE from students WHERE id = ?", (selected_student_id, ))
         connection.commit()
