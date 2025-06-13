@@ -48,10 +48,18 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   * [WebcamDetectionApp/main_web.py](https://github.com/alexandru-cohal/PythonApps/blob/master/WebcamDetectionApp/main_web.py): WebApp version. Local execution using the command `streamlit run main_web.py`.
   * **Libraries, Tools & Concepts**: WebApp with _Streamlit_, image acquisition from webcam, image processing with _OpenCV_ (_cv2_), threading with _threading_, Email sending with _smtplib_ and _ssl_.
 
-* **WebScrapingApp**: App which scraps information about new events from a [website](https://programmer100.pythonanywhere.com/tours/) and updates a database and sends a notification emails when new such events are found.
-  * [WebScrapingApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/WebScrapingApp/main.py): Script version
+* **WebScrapingEventApp**: App which scraps information about new events from a [website](https://programmer100.pythonanywhere.com/tours/) and updates a database and sends a notification emails when new such events are found.
+  * [WebScrapingEventApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/WebScrapingEventApp/main.py): Script version.
   * **Libraries, Tools & Concepts**: Web data scraping with _requests_, processing of scraped data with _selectorlib_ and YAML CSS extractors, SQLite databases with _sqlite3_ and [DB Browser for SQLite](https://sqlitebrowser.org/), Email sending with _smtplib_ and _ssl_.
+ 
+* **WebScrapingTempApp**: App which scraps information about temperature from a [website](https://programmer100.pythonanywhere.com/), updates a database and plots the obtained data in a WebApp.
+  * [WebScrapingTempApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/WebScrapingTempApp/main.py): Script version.
+  * **Libraries, Tools & Concepts**: Web data scraping with _requests_, processing of scraped data with _selectorlib_ and YAML CSS extractors, SQLite databases with _sqlite3_ and [DB Browser for SQLite](https://sqlitebrowser.org/), WebApp with _Streamlit_.
 
 * **HotelBookingApp**: App for booking a hotel (if available) and a spa package if there is availability and the credit card is validated.
   * [HotelBookingApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/HotelBookingApp/main.py): CLI version.
   * **Libraries, Tools & Concepts**: OOP, _Pandas_, CSV file reading.
+ 
+* **StudentManagementApp**: App for managing the records of a group of students (i.e. adding, editing, removing) stored in a database.
+  * [StudentManagementApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/StudentManagementApp/main.py): GUI version.
+  * **Libraries, Tools & Concepts**: OOP, GUI with _PyQt6_, SQLite databases with _sqlite3_
