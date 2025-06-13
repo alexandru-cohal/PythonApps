@@ -61,5 +61,6 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   * **Libraries, Tools & Concepts**: OOP, _Pandas_, CSV file reading.
  
 * **StudentManagementApp**: App for managing the records of a group of students (i.e. adding, editing, removing) stored in a database.
-  * [StudentManagementApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/StudentManagementApp/main.py): GUI version.
-  * **Libraries, Tools & Concepts**: OOP, GUI with _PyQt6_, SQLite databases with _sqlite3_
+  * [StudentManagementApp/main_sqlite.py](https://github.com/alexandru-cohal/PythonApps/blob/master/StudentManagementApp/main_sqlite.py): GUI version which uses SQLite database system.
+  * [StudentManagementApp/main_mysql.py](https://github.com/alexandru-cohal/PythonApps/blob/master/StudentManagementApp/main_mysql.py): GUI version which uses MySQL database system.
+  * **Libraries, Tools & Concepts**: OOP, GUI with _PyQt6_, SQLite databases with _sqlite3_, MySQL databases with _mysql.connector_.
