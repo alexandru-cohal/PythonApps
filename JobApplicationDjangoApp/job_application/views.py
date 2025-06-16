@@ -36,3 +36,6 @@ def index(request):
             messages.success(request, "The form was submitted successfully!")
 
     return render(request, "index.html")
+
+def about(request):
+    return render(request, "about.html")
