@@ -69,3 +69,7 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   * [BrowserAutomationApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/BrowserAutomationApp/main.py): Script version.
   * [BrowserAutomationApp/main_gui.py](https://github.com/alexandru-cohal/PythonApps/blob/master/BrowserAutomationApp/main_gui.py): GUI version.
   * **Libraries, Tools & Concepts**: OOP, GUI with _Tkinter_, web automation in the Google Chrome browser with _Selenium_.
+ 
+* **JobApplicationApp**: App for submitting the personal details for a job, storing them in a database and sending a confirmation email once the submittion is done.
+  * [JobApplicationApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/JobApplicationApp/main.py): WebApp version.
+  * **Libraries, Tools & Concepts**: WebApp with _Flask_, _Bootstrap_ and _Jinja2_, SQLite databases with _Flask-SQLAlchemy_, Email sending with _Flask-Mail_
