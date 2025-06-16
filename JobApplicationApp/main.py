@@ -10,8 +10,8 @@ import os
 # Create a Flask app instance
 app = Flask(__name__)
 
-# Create a SQLAlchemy database and mail instances
-app.config["SECRET_KEY"] = "myapplication123"
+# Set the needed configuration parameters for create an SQLAlchemy database instance and a Mail instance
+app.config["SECRET_KEY"] = os.getenv("FLASK_APP_PASS")
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
 app.config["MAIL_PORT"] = 465
@@ -21,6 +21,7 @@ app.config["MAIL_PASSWORD"] = os.getenv("PASS_EMAIL_AUTOMATION")
 
 db = SQLAlchemy(app)
 mail = Mail(app)
+
 
 # Create the database model
 class Form(db.Model):
