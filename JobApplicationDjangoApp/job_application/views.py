@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import JobApplicationForm
 from .models import Form
+from django.contrib import messages
 
 
 def index(request):
@@ -18,5 +19,7 @@ def index(request):
                                 email=email,
                                 available_date=available_date,
                                 occupation=occupation)
+
+            messages.success(request, "The form was submitted successfully!")
 
     return render(request, "index.html")
