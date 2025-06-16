@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import JobApplicationForm
+from .models import Form
 
 
 def index(request):
@@ -11,5 +12,11 @@ def index(request):
             email = form.cleaned_data["email"]
             available_date = form.cleaned_data["available_date"]
             occupation = form.cleaned_data["occupation"]
-            
+
+            Form.objects.create(first_name=first_name,
+                                last_name=last_name,
+                                email=email,
+                                available_date=available_date,
+                                occupation=occupation)
+
     return render(request, "index.html")
