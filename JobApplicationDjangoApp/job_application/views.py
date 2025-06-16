@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import JobApplicationForm
 from .models import Form
 from django.contrib import messages
+from django.core.mail import EmailMessage
 
 
 def index(request):
@@ -19,6 +20,18 @@ def index(request):
                                 email=email,
                                 available_date=available_date,
                                 occupation=occupation)
+
+            message_body = (f"Thank you for your submission, {first_name}.\n"
+                            f"Here are your data:\n"
+                            f"\t{first_name}\n"
+                            f"\t{last_name}\n"
+                            f"\t{available_date}\n"
+                            f"\t{occupation}.\n"
+                            f"Thank you!")
+            email_message = EmailMessage(subject="Form Submission Confirmation",
+                                         body=message_body,
+                                         to=[email])
+            email_message.send()
 
             messages.success(request, "The form was submitted successfully!")
 
