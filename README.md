@@ -70,6 +70,11 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
   * [BrowserAutomationApp/main_gui.py](https://github.com/alexandru-cohal/PythonApps/blob/master/BrowserAutomationApp/main_gui.py): GUI version.
   * **Libraries, Tools & Concepts**: OOP, GUI with _Tkinter_, web automation in the Google Chrome browser with _Selenium_.
  
-* **JobApplicationApp**: App for submitting the personal details for a job, storing them in a database and sending a confirmation email once the submittion is done.
-  * [JobApplicationApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/JobApplicationApp/main.py): WebApp version.
+* **JobApplicationFlaskApp**: App for submitting the personal details for a job, storing them in a database and sending a confirmation email once the submittion is done.
+  * [JobApplicationFlaskApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/JobApplicationFlaskApp/main.py): WebApp version.
   * **Libraries, Tools & Concepts**: WebApp with _Flask_, _Bootstrap_ and _Jinja2_, SQLite databases with _Flask-SQLAlchemy_, Email sending with _Flask-Mail_
+ 
+* **JobApplicationDjangoApp**: App for submitting the personal details for a job, storing them in a database, sending a confirmation email once the submittion is done and having and admin interface.
+  * [JobApplicationDjangoApp/manage.py](https://github.com/alexandru-cohal/PythonApps/blob/master/JobApplicationDjangoApp/manage.py): WebApp version. Local execution using the command `python manage.py runserver`.
+  * **Libraries, Tools & Concepts**: WebApp with _Django_, _Bootstrap_ and _Jinja2_ (database, Email sending and admin interface covered by _Django_)
+ 
