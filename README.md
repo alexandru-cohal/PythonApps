@@ -72,9 +72,13 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
  
 * **JobApplicationFlaskApp**: App for submitting the personal details for a job, storing them in a database and sending a confirmation email once the submittion is done.
   * [JobApplicationFlaskApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/JobApplicationFlaskApp/main.py): WebApp version.
-  * **Libraries, Tools & Concepts**: WebApp with _Flask_, _Bootstrap_ and _Jinja2_, SQLite databases with _Flask-SQLAlchemy_, Email sending with _Flask-Mail_
+  * **Libraries, Tools & Concepts**: WebApp with _Flask_, _Bootstrap_ and _Jinja2_, SQLite databases with _Flask-SQLAlchemy_, Email sending with _Flask-Mail_.
  
 * **JobApplicationDjangoApp**: App for submitting the personal details for a job, storing them in a database, sending a confirmation email once the submittion is done and having and admin interface.
   * [JobApplicationDjangoApp/manage.py](https://github.com/alexandru-cohal/PythonApps/blob/master/JobApplicationDjangoApp/manage.py): WebApp version. Local execution using the command `python manage.py runserver`.
-  * **Libraries, Tools & Concepts**: WebApp with _Django_, _Bootstrap_ and _Jinja2_ (database, Email sending and admin interface covered by _Django_)
+  * **Libraries, Tools & Concepts**: WebApp with _Django_, styling with _Bootstrap_ and template engine with _Jinja_ (database, Email sending and admin interface covered by _Django_).
+ 
+* **RestaurantManagementApp**: App for managing the menu of a restaurant, storing all the items, their description, price, availability and author in a database, managing all these details through an admin interface.
+  * [RestaurantManagementApp/manage.py](https://github.com/alexandru-cohal/PythonApps/blob/master/RestaurantManagementApp/manage.py): WebApp version. Local execution using the command `python manage.py runserver`.
+  * **Libraries, Tools & Concepts**: WebApp with _Django_, styling with _Bootstrap_ and template engine with _Jinja_ (database and admin interface covered by _Django_).
  
