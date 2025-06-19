@@ -81,4 +81,9 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
 * **RestaurantManagementApp**: App for managing the menu of a restaurant, storing all the items, their description, price, availability and author in a database, managing all these details through an admin interface.
   * [RestaurantManagementApp/manage.py](https://github.com/alexandru-cohal/PythonApps/blob/master/RestaurantManagementApp/manage.py): WebApp version. Local execution using the command `python manage.py runserver`.
   * **Libraries, Tools & Concepts**: WebApp with _Django_, styling with _Bootstrap_ and template engine with _Jinja_ (database and admin interface covered by _Django_).
- 
+
+* **MovieRecommendationNotebook**: Jupyter Notebooks containing 3 types of movie recommendation systems: Popularity Based Filtering, Content Based Filtering and Collaborative Based Filtering.
+  * [MovieRecommendationNotebook/Popularity Based Filtering.ipynb](https://github.com/alexandru-cohal/PythonApps/blob/master/MovieRecommendationNotebook/Popularity%20Based%20Filtering.ipynb): Jupyter Notebook for Popularity Based Filtering
+  * [MovieRecommendationNotebook/Content Based Filtering.ipynb](https://github.com/alexandru-cohal/PythonApps/blob/master/MovieRecommendationNotebook/Content%20Based%20Filtering.ipynb): Jupyter Notebook for Content Based Filtering
+  * [MovieRecommendationNotebook/Collaborative Based Filtering.ipynb](https://github.com/alexandru-cohal/PythonApps/blob/master/MovieRecommendationNotebook/Collaborative%20Based%20Filtering.ipynb): Jupyter Notebook for Collaborative Based Filtering
+  * * **Libraries, Tools & Concepts**: JupyterLab, data analysis, TFIDF (Term Frequency – Inverse Document Frequency) with _sklearn_ and SVD (Singular Value Decomposition) with _surprise_.
