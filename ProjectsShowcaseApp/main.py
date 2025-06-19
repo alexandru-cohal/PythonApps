@@ -6,7 +6,7 @@ SELF_DESCRIPTION = """Hi! I am Alex!
 
 I am passionate about anything that blinks, beeps, spins or has at least a line of code in it."""
 
-CONTENT_DESCRIPTION = """Now the time to play around in peace with Python finally arrived! 
+CONTENT_DESCRIPTION = """The time to play around in peace with Python has finally arrived! 
 
 Below you can find the apps I have built while taking the Udemy course \"Python Mega Course: Learn Python in 60 Days, 
 Build 20 Apps\". 
@@ -28,7 +28,7 @@ st.set_page_config(layout="wide")
 column_introd_left, column_introd_right = st.columns(2)
 
 with column_introd_left:
-    st.image("images/myself.jpeg")
+    st.image("images/myself.jpeg", width=500)
 
 with column_introd_right:
     st.title("Alexandru Cohal")
