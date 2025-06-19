@@ -1,5 +1,38 @@
 # PythonApps
-Python Apps created while taking the Udemy course _"Python Mega Course: Learn Python in 60 Days, Build 20 Apps"_:
+
+## Scope
+Repository containing the Python Apps developed while taking the Udemy course [_"Python Mega Course: Learn Python in 60 Days, Build 20 Apps"_](https://www.udemy.com/course/the-python-mega-course/) in April - June 2025.
+
+## Libraries, Tools & Concepts Used (a mix of everything)
+* Python 3.13
+* IDE PyCharm 2025.1 Community Edition
+* GUI (_FreeSimpleGUI_, _PyQt6_, _Tkinter_)
+* WebApp (_Streamlit_, _Flask_, _Django_, CSS styling with _Bootstrap_, templating with _Jinja_, admin interface with _Django_)
+* WebApp deployment (_Streamlit_)
+* Standalone executable generation (_Pyinstaller_)
+* Generation of _requirements.txt_ file
+* GUI design (_Figma_)
+* Data Analysis and Data Science (_Pandas_, _Jupyter Notebook_, [_Deepnote_](https://deepnote.com/), Recommendation Systems, TFIDF (Term Frequency – Inverse Document Frequency), _sklearn_, ML (Machine Learning), SVD (Singular Value Decomposition), _surprise_)
+* CSV and XLSX file reading
+* Email sending (_smtplib_, _ssl_, _Flask-Mail_, _Django_)
+* PDF generation (_PyFPDF_)
+* API usage (_requests_)
+* API creation (_Flask_)
+* Scheduling ([_PythonAnywhere_](https://www.pythonanywhere.com/))
+* Regular expressions (_re_)
+* Natural Language Processing (NLP) (_nltk_)
+* Image acquisition from webcam
+* Image processing (_OpenCV_ - _cv2_)
+* Threading (_threading_)
+* Web scraping (_requests_, _selectorlib_, YAML CSS extractors)
+* Databases
+  * SQLite (_sqplite3_, _Flask-SQLAlchemy_, _Django_ and [DB Browser for SQLite](https://sqlitebrowser.org/))
+  * MySQL - (_mysql.connector_)
+* Object Oriented Programming (OOP)
+* Web automation (_Selenium_, _Google Chrome_)
+* Publishing a Python Package to [_PyPi_](https://pypi.org/)
+
+## List of Apps
 * **ToDoListApp**: App for tracking the ToDos with the possibility to add, edit, remove and show ToDos.
   *  [ToDoListApp/main_cli.py](https://github.com/alexandru-cohal/PythonApps/blob/master/ToDoListApp/main_cli.py): CLI (Command Line Interface) version.
   *  [ToDoListApp/main_gui.py](https://github.com/alexandru-cohal/PythonApps/blob/master/ToDoListApp/main_gui.py): GUI (Graphical User Interface) version. Standalone executable available [here](https://github.com/alexandru-cohal/PythonApps/blob/master/ToDoListApp/dist/main_gui.exe).
@@ -72,18 +105,18 @@ Python Apps created while taking the Udemy course _"Python Mega Course: Learn Py
  
 * **JobApplicationFlaskApp**: App for submitting the personal details for a job, storing them in a database and sending a confirmation email once the submittion is done.
   * [JobApplicationFlaskApp/main.py](https://github.com/alexandru-cohal/PythonApps/blob/master/JobApplicationFlaskApp/main.py): WebApp version.
-  * **Libraries, Tools & Concepts**: WebApp with _Flask_, _Bootstrap_ and _Jinja2_, SQLite databases with _Flask-SQLAlchemy_, Email sending with _Flask-Mail_.
+  * **Libraries, Tools & Concepts**: WebApp with _Flask_, styling with _Bootstrap_ and templating with _Jinja_, SQLite databases with _Flask-SQLAlchemy_, Email sending with _Flask-Mail_.
  
 * **JobApplicationDjangoApp**: App for submitting the personal details for a job, storing them in a database, sending a confirmation email once the submittion is done and having and admin interface.
   * [JobApplicationDjangoApp/manage.py](https://github.com/alexandru-cohal/PythonApps/blob/master/JobApplicationDjangoApp/manage.py): WebApp version. Local execution using the command `python manage.py runserver`.
-  * **Libraries, Tools & Concepts**: WebApp with _Django_, styling with _Bootstrap_ and template engine with _Jinja_ (database, Email sending and admin interface covered by _Django_).
+  * **Libraries, Tools & Concepts**: WebApp with _Django_, styling with _Bootstrap_ and template with _Jinja_ (database, Email sending and admin interface covered by _Django_).
  
 * **RestaurantManagementApp**: App for managing the menu of a restaurant, storing all the items, their description, price, availability and author in a database, managing all these details through an admin interface.
   * [RestaurantManagementApp/manage.py](https://github.com/alexandru-cohal/PythonApps/blob/master/RestaurantManagementApp/manage.py): WebApp version. Local execution using the command `python manage.py runserver`.
   * **Libraries, Tools & Concepts**: WebApp with _Django_, styling with _Bootstrap_ and template engine with _Jinja_ (database and admin interface covered by _Django_).
 
 * **MovieRecommendationNotebook**: Jupyter Notebooks containing 3 types of movie recommendation systems: Popularity Based Filtering, Content Based Filtering and Collaborative Based Filtering.
-  * [MovieRecommendationNotebook/Popularity Based Filtering.ipynb](https://github.com/alexandru-cohal/PythonApps/blob/master/MovieRecommendationNotebook/Popularity%20Based%20Filtering.ipynb): Jupyter Notebook for Popularity Based Filtering
-  * [MovieRecommendationNotebook/Content Based Filtering.ipynb](https://github.com/alexandru-cohal/PythonApps/blob/master/MovieRecommendationNotebook/Content%20Based%20Filtering.ipynb): Jupyter Notebook for Content Based Filtering
-  * [MovieRecommendationNotebook/Collaborative Based Filtering.ipynb](https://github.com/alexandru-cohal/PythonApps/blob/master/MovieRecommendationNotebook/Collaborative%20Based%20Filtering.ipynb): Jupyter Notebook for Collaborative Based Filtering
-  * * **Libraries, Tools & Concepts**: JupyterLab within [Deepnote](https://deepnote.com/), data analysis, TFIDF (Term Frequency – Inverse Document Frequency) with _sklearn_ and SVD (Singular Value Decomposition) with _surprise_.
+  * [MovieRecommendationNotebook/Popularity Based Filtering.ipynb](https://github.com/alexandru-cohal/PythonApps/blob/master/MovieRecommendationNotebook/Popularity%20Based%20Filtering.ipynb): Jupyter Notebook for Popularity Based Filtering.
+  * [MovieRecommendationNotebook/Content Based Filtering.ipynb](https://github.com/alexandru-cohal/PythonApps/blob/master/MovieRecommendationNotebook/Content%20Based%20Filtering.ipynb): Jupyter Notebook for Content Based Filtering.
+  * [MovieRecommendationNotebook/Collaborative Based Filtering.ipynb](https://github.com/alexandru-cohal/PythonApps/blob/master/MovieRecommendationNotebook/Collaborative%20Based%20Filtering.ipynb): Jupyter Notebook for Collaborative Based Filtering.
+  * **Libraries, Tools & Concepts**: JupyterLab within [Deepnote](https://deepnote.com/), data analysis, TFIDF (Term Frequency – Inverse Document Frequency) with _sklearn_ and SVD (Singular Value Decomposition) with _surprise_.
