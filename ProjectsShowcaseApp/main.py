@@ -19,7 +19,7 @@ Feel free to contact me if you see something interesting or if you have any impr
 PROJECTS_DESCRIPTION_FILEPATH = "projects_data.csv"
 
 # Get the projects' information from the separate CSV file
-projects_df = pandas.read_csv(PROJECTS_DESCRIPTION_FILEPATH, sep=";")
+projects_df = pandas.read_csv(PROJECTS_DESCRIPTION_FILEPATH, sep=",")
 index_middle_projects_df = ceil(len(projects_df) / 2)
 
 st.set_page_config(layout="wide")
