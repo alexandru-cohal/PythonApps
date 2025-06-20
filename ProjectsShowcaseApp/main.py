@@ -38,7 +38,7 @@ st.set_page_config(layout="wide")
 column_introd_left, column_introd_right = st.columns(2)
 
 with column_introd_left:
-    st.image(MYSELF_PHOTO_FILEPATH)
+    st.image(MYSELF_PHOTO_FILEPATH, width=400)
 
 with column_introd_right:
     st.title("Alexandru Cohal")
