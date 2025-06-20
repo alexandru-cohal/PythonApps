@@ -33,6 +33,8 @@ Repository containing the Python Apps developed while taking the Udemy course [_
 * Publishing a Python Package to [_PyPi_](https://pypi.org/)
 
 ## List of Apps
+> A summary of the developed Apps can be also seen in the deployed WebApp available [here](https://alexandru-cohal-pythonapps-projectsshowcaseappmain-4s9sfk.streamlit.app/).
+
 ### ToDoListApp
 * **Scope**: App for tracking the ToDos with the possibility to add, edit, remove and show ToDos.
 * **Versions**:
